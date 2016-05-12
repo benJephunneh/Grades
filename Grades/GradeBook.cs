@@ -1,19 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.IO;
 
 namespace Grades
 {
     public class GradeBook
     {
+        //## GradeBook class
+        //***
         public GradeBook()
         {
             grades = new List<float>();
             _name = "Empty";
         }
 
+        //#### ComputeStats
         public GradeStats ComputeStats()//---
         {
             GradeStats stats = new GradeStats();
@@ -29,9 +30,19 @@ namespace Grades
             return stats;
         }
 
+        //#### AddGrade
         public void AddGrade(float grade)//---
         {
             grades.Add(grade);
+        }
+
+        //#### WriteGrades
+        public void WriteGrades(TextWriter destination)//---
+        {
+            for (int i = grades.Count; i > 0; i--)
+            {
+                destination.WriteLine(grades[i-1]);
+            } 
         }
 
 //---
