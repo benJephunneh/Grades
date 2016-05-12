@@ -1,13 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Grades
+﻿namespace Grades
 {
     public class GradeStats
     {
+        //## Calculate grade statistics
+        //***
+        public float SumOfGrades;
+        public float AverageGrade;
+        public float HighestGrade;
+        public float LowestGrade;
+
         public GradeStats()
         {
             SumOfGrades = 0;
@@ -15,7 +16,8 @@ namespace Grades
             LowestGrade = float.MaxValue;
         }
 
-        public string LetterGrade
+        //#### Return the letter grade for the average
+        public string LetterGrade//---
         {
             get
             {
@@ -43,9 +45,36 @@ namespace Grades
                 return result;
             }
         }
-        public float SumOfGrades;
-        public float AverageGrade;
-        public float HighestGrade;
-        public float LowestGrade;
+
+        //#### Return grade description for the letter
+        public string Description//---
+        {
+            get
+            {
+                string result;
+                switch (LetterGrade)
+                {
+                    case "A":
+                        result = "Excellent.  ";
+                        break;
+                    case "B":
+                        result = "Very nice.  ";
+                        break;
+                    case "C":
+                        result = "Not too bad, not too good.  ";
+                        break;
+                    case "D":
+                        result = "Needs improvement.  ";
+                        break;
+                    case "F":
+                        result = "Very poor.  ";
+                        break;
+                    default:
+                        result = "No letter grade available.  ";
+                        break;
+                }
+                return result;
+            }
+        }
     }
 }
