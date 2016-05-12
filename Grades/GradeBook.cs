@@ -17,9 +17,10 @@ namespace Grades
         //#### ComputeStats
         public GradeStats ComputeStats()//---
         {
+            Console.WriteLine("GradeBook::ComputeStats");
             GradeStats stats = new GradeStats();
 
-            foreach(float grade in grades)
+            foreach (float grade in grades)
             {
                 stats.SumOfGrades += grade;
                 stats.HighestGrade = Math.Max(stats.HighestGrade, grade);
@@ -41,11 +42,11 @@ namespace Grades
         {
             for (int i = grades.Count; i > 0; i--)
             {
-                destination.WriteLine(grades[i-1]);
-            } 
+                destination.WriteLine(grades[i - 1]);
+            }
         }
 
-//---
+        //---
         public string Name
         {
             get
@@ -54,23 +55,25 @@ namespace Grades
             }
             set
             {
-                if (!String.IsNullOrEmpty(value))
+                if (string.IsNullOrEmpty(value))
                 {
-                    if (_name != value)
-                    {
-                        NameChangedEventArgs args = new NameChangedEventArgs();
-                        args.ExistingName = _name;
-                        args.NewName = value;
-
-                        NameChanged(this, args);
-                    }
-                    _name = value;
+                    throw new ArgumentException("Name cain't be null or empty.");
                 }
+
+                if (_name != value && NameChanged != null)
+                {
+                    NameChangedEventArgs args = new NameChangedEventArgs();
+                    args.ExistingName = _name;
+                    args.NewName = value;
+
+                    NameChanged(this, args);
+                }
+                _name = value;
             }
         }
 
         public event NameChangedDelegate NameChanged;
         private string _name;
-        private List<float> grades;
+        protected List<float> grades;
     }
 }
