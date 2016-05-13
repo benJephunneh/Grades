@@ -10,3 +10,9 @@ C:\Users\benJephunneh\Source\Repos\Grades\Grades\obj\Debug\Grades.pdb
 C:\Users\benJephunneh\Source\Repos\Grades\Grades\bin\Debug\Grades.exe
 C:\Users\benJephunneh\Source\Repos\Grades\Grades\bin\Debug\Grades.pdb
 C:\Users\benJephunneh\Source\Repos\Grades\Grades\obj\Debug\Grades.csprojResolveAssemblyReference.cache
+D:\downloads\gits\Grades\Grades\bin\Debug\Grades.exe.config
+D:\downloads\gits\Grades\Grades\obj\Debug\Grades.exe
+D:\downloads\gits\Grades\Grades\obj\Debug\Grades.pdb
+D:\downloads\gits\Grades\Grades\bin\Debug\Grades.exe
+D:\downloads\gits\Grades\Grades\bin\Debug\Grades.pdb
+D:\downloads\gits\Grades\Grades\obj\Debug\Grades.csprojResolveAssemblyReference.cache

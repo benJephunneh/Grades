@@ -8,7 +8,7 @@ namespace Grades
 {
     public class ThrowAwayGradeBook : GradeBook
     {
-        public GradeStats ComputeStatistics()
+        public override GradeStats ComputeStats()
         {
             Console.WriteLine("ThrowAwayGradeBook::ComputeStats");
 
