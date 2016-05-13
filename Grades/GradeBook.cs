@@ -4,7 +4,7 @@ using System.IO;
 
 namespace Grades
 {
-    public class GradeBook
+    public class GradeBook : GradeTracker
     {
         //## GradeBook class
         //***
@@ -15,11 +15,12 @@ namespace Grades
         }
 
         //#### ComputeStats
-        public GradeStats ComputeStats()//---
+        public override GradeStats ComputeStats()//---
         {
+            Console.WriteLine("GradeBook::ComputeStats");
             GradeStats stats = new GradeStats();
 
-            foreach(float grade in grades)
+            foreach (float grade in grades)
             {
                 stats.SumOfGrades += grade;
                 stats.HighestGrade = Math.Max(stats.HighestGrade, grade);
@@ -31,46 +32,21 @@ namespace Grades
         }
 
         //#### AddGrade
-        public void AddGrade(float grade)//---
+        public override void AddGrade(float grade)//---
         {
             grades.Add(grade);
         }
 
         //#### WriteGrades
-        public void WriteGrades(TextWriter destination)//---
+        public override void WriteGrades(TextWriter destination)//---
         {
             for (int i = grades.Count; i > 0; i--)
             {
-                destination.WriteLine(grades[i-1]);
-            } 
-        }
-
-//---
-        public string Name
-        {
-            get
-            {
-                return _name;
-            }
-            set
-            {
-                if (!String.IsNullOrEmpty(value))
-                {
-                    if (_name != value)
-                    {
-                        NameChangedEventArgs args = new NameChangedEventArgs();
-                        args.ExistingName = _name;
-                        args.NewName = value;
-
-                        NameChanged(this, args);
-                    }
-                    _name = value;
-                }
+                destination.WriteLine(grades[i - 1]);
             }
         }
 
-        public event NameChangedDelegate NameChanged;
-        private string _name;
-        private List<float> grades;
+        //---
+        protected List<float> grades;
     }
 }
